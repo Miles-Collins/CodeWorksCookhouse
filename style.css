@@ -2,3 +2,12 @@
   height: 4rem;
   width: 4rem;
 }
+
+.menu-item-image {
+  height: 15rem;
+  width: 100%;
+}
+
+.menu-item:hover{
+  cursor: pointer;
+}

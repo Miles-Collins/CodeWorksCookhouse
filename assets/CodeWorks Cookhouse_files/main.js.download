@@ -137,13 +137,13 @@ function drawFavorites() {
   let menuString = ''
   for (let i in menuCategories) {
   Object.values(menuCategories[i]).map(item => {
-      if(item.favorite) {   
+      if(item.favorite) {
+        
         menuString += `
-         <div onclick="openModal('${item.name}')" class="col-6 col-md-4 col-lg-3 menu-item m-lg-2 d-flex align-items-center justify-content-center p-3">
+         <div onclick="openModal('${item.name}')" class="col-4">
               <div class="row">
-                <div class="col-12 text-center">
-                  <img src="${item.image}" class="mb-1 menu-item-image" />
-                  <p class="mb-0">${item.name}</p>
+                <div class="col-12">
+                  <img src="${item.image}" class="menu-item-image" />
                 </div>
               </div>
           </div>
@@ -160,66 +160,65 @@ function findObjectInDictionaryWithArrayName(menuCategories, itemName) {
  
 }
 
-
-
-
 let item;
 
 function openModal(itemName) {
   for (let categories in menuCategories) {
-    if (item) {
+    
+    if(item) {
       updateModal(item);
-      return;
+      item = null
+      break
     } else {
-      Object.values(menuCategories[categories]).find((food) => {
-        if (food.name == itemName) {
-          item = food;
+    Object.values(menuCategories[categories]).find(
+      (food) => {
+        if(food.name == itemName) {
+          item = food
         }
-      });
+      }
+    )
     }
+    
   }
 }
 
 function updateModal(item) {
-  debugger;
-
   let myModal = new bootstrap.Modal(document.getElementById("itemModal"));
-  let menuBodyElem = document.getElementById("menuBody");
-
+  let menuBodyElem = document.getElementById('menuBody')
   menuBodyElem.innerHTML = `
     <div class="col-12 col-md-6 d-flex align-items-center">
       <img src="${item.image}" class="img-fluid" alt="">
     </div>
     <div class="col-12 col-md-6">
-      <div class="row">
-        <div class="col-12">
-          <h1>${item.name}</h1>
-        </div>
-        <div class="col-12">
-          <p>${item.description}</p>
-        </div>
-        <div class="col-12">
-          <p>Price: $${item.price}</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="row justify-content-end mt-2">
-            <div class="col-6 col-md-6">
-              <button type="button" class="btn btn-outline-danger form-control" data-bs-dismiss="modal">Close</button>
+            <div class="row">
+              <div class="col-12">
+                <h1>${item.name}</h1>
+              </div>
+              <div class="col-12">
+                <p>${item.description}</p>
+              </div>
+              <div class="col-12">
+                <p>Price: $${item.price}</p>
+              </div>
             </div>
-            <div class="col-6 col-md-6">
-              <button onclick="addToCart('${item.price}')" type="button" class="btn btn-outline-dark form-control">Add to cart</button>
+            <div class="row">
+               <div class="col-12">
+              <div class="row justify-content-end mt-2">
+                <div class="col-6 col-md-6">
+                  <button type="button" class="btn btn-outline-danger form-control" data-bs-dismiss="modal">Close</button>
+                </div>
+                <div class="col-6 col-md-6">
+                  <button onclick="addToCart('${item.price}')" type="button" class="btn btn-outline-dark form-control">Add to cart</button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+            </div>
     </div>
+ 
   `;
 
-  myModal.toggle();
+   myModal.toggle();
 }
-
 
 // SECTION CART
 
