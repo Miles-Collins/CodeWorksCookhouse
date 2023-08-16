@@ -13,38 +13,39 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <title>CodeWorks Cookhouse</title>
 </head>
-<body>
+<body class="container">
+
   <main>
     <section class="container-fluid mt-5">
       <div class="row  justify-content-center">
         <!-- SECTION FILTER FOR MENU -->
-        <div class="d-none d-md-block col-2 gx-5">
+        <div class="d-none d-xl-block col-2 gx-5 filter-menu">
           <div class="row justify-content-center">
-            <div class="col-12 text-center">
+            <div id="filterTitle" class="col-12 text-center">
               <img src="/assets/codeworks-brand.png" class="logo" alt="" srcset="">
             </div>
             <div class="col-12">
               <hr />
             </div>
-            <div class="col-12 btn btn-outline-dark p-3 my-3">
+            <div onclick="drawMenuItems('appetizers')" class="col-12 btn btn-outline-dark p-3 my-3">
                 Appetizers              
             </div>
-            <div class="col-12 btn btn-outline-dark p-3 my-3">            
+            <div onclick="drawMenuItems('sideDishes')" class="col-12 btn btn-outline-dark p-3 my-3">            
                 Sides              
             </div>
-            <div class="col-12 btn btn-outline-dark p-3 my-3">
+            <div onclick="drawMenuItems('beverages')" class="col-12 btn btn-outline-dark p-3 my-3">
                 Beverages
             </div>
-            <div class="col-12 btn btn-outline-dark p-3 my-3">          
+            <div onclick="drawMenuItems('mainCourses')" class="col-12 btn btn-outline-dark p-3 my-3">          
                 Main courses              
             </div>
-            <div class="col-12 btn btn-outline-dark p-3 my-3">            
+            <div onclick="drawMenuItems('desserts')" class="col-12 btn btn-outline-dark p-3 my-3">            
                 Desserts              
             </div>
-            <div class="col-12 btn btn-outline-dark p-3 my-3">            
+            <div onclick="drawMenuItems('all')" class="col-12 btn btn-outline-dark p-3 my-3">            
                 All              
             </div>
-            <div class="col-12 btn btn-outline-dark p-3 my-3">            
+            <div onclick="drawFavorites()" class="col-12 btn btn-outline-dark p-3 my-3">            
                 Featured Favorites              
             </div>
           </div>
@@ -52,11 +53,11 @@
         <!-- SECTION MENU -->
         <div class="col-12 col-md-10">
           <div class="row text-center">
-            <div id="menuType" class="col-12 col-md-10">
-                <h1>Featured Favorites</h1>
+            <div  class="col-12">
+                <h1 id="menuTitle" class="bg-white">CodeWorks Cookhouse</h1>
             </div>
           </div>
-          <div id="menuItems" class="row">
+          <div id="menuItems" class="row justify-content-center">
             
           </div>
         </div>
@@ -73,7 +74,7 @@
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-body">
-        <div id="menuBody" class="row justify-content-between align-items-center">
+        <div id="menuBody" class="row align-items-center p-5">
         
         </div>
       </div>
