@@ -4,8 +4,8 @@
 }
 
 .menu-item-image {
-  height: 15rem;
-  width: 100%;
+  height: 10rem;
+  width: 90%;
 }
 
 .menu-item:hover{
@@ -13,6 +13,35 @@
 }
 
 .filter-menu {
-  position: fixed;
-  left: 2.5rem
+  height: 100%;
+}
+
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1570560258879-af7f8e1447ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZmFuY3klMjByZXN0YXVyYW50fGVufDB8fDB8fHww&w=1000&q=80");
+  background-size: cover;
+  background-position: center;
+}
+
+main {
+  /* From https://css.glass */
+background: rgba(40, 40, 40, 0.515);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+-webkit-backdrop-filter: blur(9px);
+height: 100%;
+width: 100dvw;
+backdrop-filter: blur(9px);
+}
+
+.text-shadow {
+  text-shadow: 0px 0px 5px black;
+}
+
+.menu-item {
+  background-color: rgba(0, 0, 0, 0.579);
+  border: 1px solid white;
+}
+
+.menu-item:hover {
+  box-shadow: 0px 0px 10px white;
 }

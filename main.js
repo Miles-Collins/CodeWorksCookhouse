@@ -52,7 +52,7 @@ const menuCategories = {
       description:
         "Indulge in the C# Seafood Symphony, a culinary masterpiece that mirrors the complexity of the C# language. Seared seafood delights include CSS-coated scallops, HTML5-crusted salmon, and Vue-infused shrimp, all resting atop a bed of Node-powered risotto. This dish embodies the harmony and innovation that the C# ecosystem offers.",
       favorite: true,
-      image: "/assets/seafood-symphony.jpg",
+      image: "/assets/seafood-symphony.png",
     },
     {
       name: "Node Noodle Stir-Fry",
@@ -149,11 +149,11 @@ function drawFavorites() {
     Object.values(menuCategories[category]).map((item) => {
       if (item.favorite) {
         menuString += `
-         <div onclick="openModal('${item.name}')" class="col-4 menu-item d-flex align-items-center justify-content-center p-3">
+         <div onclick="openModal('${item.name}')" class="col-3 menu-item d-flex align-items-center justify-content-center p-3 m-2">
               <div class="row">
                 <div class="col-12 text-center">
                   <img src="${item.image}" class="mb-1 menu-item-image" />
-                  <p class="mb-0">${item.name}</p>
+                  <p class="mb-0 text-light">${item.name}</p>
                 </div>
               </div>
           </div>
@@ -164,16 +164,19 @@ function drawFavorites() {
   const menuElem = document.getElementById("menuItems");
   menuElem.innerHTML = menuString;
   const filterTitleElem = document.getElementById("filterTitle");
-  filterTitleElem.innerHTML = `<p class="fs-4">FEATURED FAVORITES</p>`;
+  filterTitleElem.innerHTML = `<p class="fs-5 text-light">FEATURED FAVORITES</p>`;
 }
 
 function createMenuItem(item) {
   return `
-    <div onclick="openModal('${item.name}')" class="col-4 menu-item d-flex align-items-center justify-content-center p-3">
+
+  
+
+    <div onclick="openModal('${item.name}')" class="col-3 menu-item d-flex align-items-center justify-content-center p-3 m-2">
       <div class="row">
         <div class="col-12 text-center">
           <img src="${item.image}" class="mb-1 menu-item-image" />
-          <p class="mb-0">${item.name}</p>
+          <p class="mb-0 text-light">${item.name}</p>
         </div>
       </div>
     </div>`;
@@ -192,7 +195,7 @@ function drawMenuItems(arrayName) {
   }
 
   const filterTitleElem = document.getElementById("filterTitle");
-  filterTitleElem.innerHTML = `<p class="fs-4">${arrayName.toUpperCase()}</p>`;
+  filterTitleElem.innerHTML = `<p class="fs-5 text-light">${arrayName.toUpperCase()}</p>`;
   const menuElem = document.getElementById("menuItems");
   menuElem.innerHTML = menuItemString;
 }
