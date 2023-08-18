@@ -45,3 +45,11 @@ backdrop-filter: blur(9px);
 .menu-item:hover {
   box-shadow: 0px 0px 10px white;
 }
+
+.border-white {
+  border: 1px black solid;
+}
+
+.small-font {
+  font-size: .85rem;
+}

@@ -169,9 +169,6 @@ function drawFavorites() {
 
 function createMenuItem(item) {
   return `
-
-  
-
     <div onclick="openModal('${item.name}')" class="col-3 menu-item d-flex align-items-center justify-content-center p-3 m-2">
       <div class="row">
         <div class="col-12 text-center">
@@ -240,7 +237,7 @@ function updateModal(item) {
               <button type="button" class="btn btn-outline-danger form-control" data-bs-dismiss="modal">Close</button>
             </div>
             <div class="col-6 col-md-6">
-              <button onclick="addToCart('${item.price}')" type="button" class="btn btn-outline-dark form-control">Add to cart</button>
+              <button onclick="addToCart('${item.name}', '${item.price}')" type="button" class="btn btn-outline-dark form-control">Add to cart</button>
             </div>
           </div>
         </div>
@@ -253,6 +250,31 @@ function updateModal(item) {
 
 // SECTION CART
 
-function addToCart() {}
+function addToCart(name, price) {
+  for (let category in menuCategories) {
+    const item = menuCategories[category].find((item) => item.name == name)
+    if(item) {
+      return updateCart(item)
+    }
+  }
+
+}
+
+function updateCart(item) {
+    let checkoutElem = document.getElementById("checkout");
+    checkoutElem.innerHTML += `
+    <div class="row my-1 bg-black border-white">
+    <div class="col-2 d-flex align-items-center justify-content-center">
+      <span class="mdi mdi-trash-can"></span>
+    </div>
+    <div class="col-7 small-font">
+    ${item.name} $${item.price}
+    </div>
+    <div class="col-3 d-flex align-items-center justify-content-center">
+      <img class="img-fluid" src="${item.image}">
+    </div>
+    </div>                        
+`;
+}
 
 drawFavorites();
