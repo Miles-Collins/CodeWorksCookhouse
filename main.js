@@ -141,6 +141,8 @@ const menuCategories = {
   ],
 };
 
+let price = 0;
+
 // SECTION DRAW
 
 function drawFavorites() {
@@ -203,7 +205,7 @@ function openModal(itemName) {
   for (let category in menuCategories) {
     const item = menuCategories[category].find((food) => food.name == itemName);
     if (item) {
-      console.log(item)
+      console.log(item);
       return updateModal(item);
     }
   }
@@ -237,7 +239,7 @@ function updateModal(item) {
               <button type="button" class="btn btn-outline-danger form-control" data-bs-dismiss="modal">Close</button>
             </div>
             <div class="col-6 col-md-6">
-              <button onclick="addToCart('${item.name}', '${item.price}')" type="button" class="btn btn-outline-dark form-control">Add to cart</button>
+              <button onclick="addToCart('${item.name}', '${item.price}')" type="button" class="btn btn-outline-light form-control">Add to cart</button>
             </div>
           </div>
         </div>
@@ -250,31 +252,45 @@ function updateModal(item) {
 
 // SECTION CART
 
-function addToCart(name, price) {
+function addToCart(name) {
   for (let category in menuCategories) {
-    const item = menuCategories[category].find((item) => item.name == name)
-    if(item) {
-      return updateCart(item)
+    const item = menuCategories[category].find((item) => item.name == name);
+    if (item) {
+      updateTotalCost(item);
+      return updateCart(item);
     }
   }
-
 }
 
 function updateCart(item) {
-    let checkoutElem = document.getElementById("checkout");
-    checkoutElem.innerHTML += `
+  let checkoutElem = document.getElementById("checkout");
+  checkoutElem.innerHTML += `
     <div class="row my-1 bg-black border-white">
     <div class="col-2 d-flex align-items-center justify-content-center">
       <span class="mdi mdi-trash-can"></span>
     </div>
-    <div class="col-7 small-font">
-    ${item.name} $${item.price}
+    <div class="col-7 small-font d-flex align-items-center">
+    ${item.name} <br/> $${item.price}
     </div>
     <div class="col-3 d-flex align-items-center justify-content-center">
-      <img class="img-fluid" src="${item.image}">
+      <img class="cart-image" src="${item.image}">
     </div>
     </div>                        
 `;
+}
+
+function updateTotalCost(item) {
+  const totalCostElem = document.getElementById("totalCost");
+  price += item.price;
+  totalPrice = price.toFixed(2);
+
+  if (!totalCostElem) {
+    document.getElementById("cartPrice").innerHTML = `
+    <p class="fs-5 text-shadow">Cart Total: $<span id="totalCost">${totalPrice}</span></p>
+    `;
+  } else {
+    totalCostElem.innerText = totalPrice;
+  }
 }
 
 drawFavorites();

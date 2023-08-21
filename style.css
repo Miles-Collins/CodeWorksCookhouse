@@ -8,14 +8,17 @@
   width: 90%;
 }
 
-.menu-item:hover{
+.height-100 {
+  height: 100dvh;
+}
+
+.menu-item:hover {
   cursor: pointer;
 }
 
 .filter-menu {
   height: 100%;
 }
-
 
 body {
   background-image: url("https://images.unsplash.com/photo-1570560258879-af7f8e1447ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZmFuY3klMjByZXN0YXVyYW50fGVufDB8fDB8fHww&w=1000&q=80");
@@ -25,16 +28,24 @@ body {
 
 main {
   /* From https://css.glass */
-background: rgba(40, 40, 40, 0.515);
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
--webkit-backdrop-filter: blur(9px);
-height: 100%;
-width: 100dvw;
-backdrop-filter: blur(9px);
+  background: rgba(40, 40, 40, 0.515);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(9px);
+  height: 100%;
+  backdrop-filter: blur(9px);
 }
 
 .text-shadow {
   text-shadow: 0px 0px 5px black;
+}
+
+.menu-items-section {
+  overflow-y: auto;
+  max-height: 85dvh;
+}
+
+.menu-items-section::-webkit-scrollbar {
+  display: none;
 }
 
 .menu-item {
@@ -51,5 +62,24 @@ backdrop-filter: blur(9px);
 }
 
 .small-font {
-  font-size: .85rem;
+  font-size: 0.85rem;
+}
+
+.cart-image {
+  height: 3rem;
+  width: 3rem;
+}
+
+.modal-content {
+  background-image: url("https://i.pinimg.com/1200x/70/40/d2/7040d2c68c22512eb6be6c0bf43ed1f5.jpg");
+  border: 1px white solid !important;
+  color: white !important;
+}
+
+.modal-body {
+  background: rgba(40, 40, 40, 0.515);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(3px);
+  height: 100%;
+  backdrop-filter: blur(3px);
 }
