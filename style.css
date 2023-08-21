@@ -72,13 +72,12 @@ main {
 
 .modal-content {
   background-image: url("https://i.pinimg.com/1200x/70/40/d2/7040d2c68c22512eb6be6c0bf43ed1f5.jpg");
-  border: 1px white solid !important;
+  border: 2px white solid !important;
   color: white !important;
 }
 
 .modal-body {
-  background: rgba(40, 40, 40, 0.515);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(27, 27, 27, 0.765);
   -webkit-backdrop-filter: blur(3px);
   height: 100%;
   backdrop-filter: blur(3px);
